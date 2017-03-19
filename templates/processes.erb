@@ -1,0 +1,3 @@
+<% @processes.each do |process| %>
+check process <%= process['name'] %> with pidfile <%= process['pidfile'] %>
+<% end %>

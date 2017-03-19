@@ -116,3 +116,26 @@ link '/etc/monit/conf-enabled/nginx' do
 
   notifies :restart, 'service[monit]'
 end
+
+template '/etc/monit/conf-available/processes' do
+  source 'processes'
+  owner 'root'
+  group 'root'
+  mode '0644' # -rw-r--r--
+
+  not_if { node['monit']['processes'].empty? }
+
+  notifies :restart, 'service[monit]'
+
+  variables processes: node['monit']['processes']
+end
+
+link '/etc/monit/conf-enabled/processes' do
+  to '/etc/monit/conf-available/processes'
+  owner 'root'
+  group 'root'
+
+  not_if { node['monit']['processes'].empty? }
+
+  notifies :restart, 'service[monit]'
+end
