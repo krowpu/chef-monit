@@ -38,7 +38,7 @@ template '/etc/monit/conf-available/system' do
 
   notifies :restart, 'service[monit]'
 
-  variables name: data['monit']['system_name']
+  variables name: node['monit']['system_name']
 end
 
 link '/etc/monit/conf-enabled/system' do
