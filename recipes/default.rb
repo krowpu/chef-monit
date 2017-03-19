@@ -118,7 +118,7 @@ link '/etc/monit/conf-enabled/nginx' do
 end
 
 template '/etc/monit/conf-available/processes' do
-  source 'processes'
+  source 'processes.erb'
   owner 'root'
   group 'root'
   mode '0644' # -rw-r--r--
