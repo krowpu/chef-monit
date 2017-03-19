@@ -1,0 +1,1 @@
+check process nginx with pidfile /var/run/nginx.pid
