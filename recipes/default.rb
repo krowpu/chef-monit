@@ -13,7 +13,7 @@ service 'nginx' do
 end
 
 cookbook_file '/etc/monit/monitrc' do
-  source 'monitrc.erb'
+  source 'monitrc'
   owner 'root'
   group 'root'
   mode '0600' # -rw-------
